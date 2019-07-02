@@ -133,7 +133,7 @@ function ConwaysGameOfLife(width, height) {
         } else if (liveNeighbors == 3) {
           newGrid[i].push(1);
         } else if (liveNeighbors < 2) {
-          newGrid[i].push(oldValue > 0 ? oldValue - 0.1 : 0);
+          newGrid[i].push(oldValue > 0 ? oldValue - 0.01 : 0);
         } else {
           newGrid[i].push(0.9);
         }
