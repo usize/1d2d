@@ -1,6 +1,11 @@
 <html style="background: #000000; color: white; font-size: 14px; font-family: Lucida Console, Monaco, monospace;">
     <head>
         <script src="1d2d.js"></script>
+        <style>
+            a {
+                color: white;
+            }
+        </style>
     </head>
     <body>
             1D <a href="https://en.wikipedia.org/wiki/Rule_30">Rule 30</a>
@@ -15,7 +20,7 @@
     </body>
     <script>
         let width = window.screen.width - 25;
-        let heightBottom = Math.floor(window.screen.height / 5);
+        let heightBottom = Math.floor(window.screen.height / 3);
         let heightTop = Math.floor((window.screen.height - heightBottom) - 150);
 
         let topCanvas = document.getElementById("top-convas");

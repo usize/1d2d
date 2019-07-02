@@ -117,14 +117,14 @@ function ConwaysGameOfLife(width, height) {
         liveNeighbors = liveNeighbors + (self.grid[i][j_minus_1] >= 1 || 0);
         liveNeighbors = liveNeighbors + (self.grid[i][j_plus_1] >= 1 || 0);
 
-        liveNeighbors = liveNeighbors + (self.grid[i_plus_1][j_plus_1] >= 1 || 0);
-        liveNeighbors = liveNeighbors + (self.grid[i_plus_1][j_minus_1] >= 1 || 0);
+        liveNeighbors = liveNeighbors + (((self.grid[i + 1] || [])[j_plus_1] || 0) >= 1 || 0);
+        liveNeighbors = liveNeighbors + (((self.grid[i + 1] || [])[j_minus_1] || 0) >= 1 || 0);
 
-        liveNeighbors = liveNeighbors + (self.grid[i_minus_1][j_plus_1] >= 1 || 0);
-        liveNeighbors = liveNeighbors + (self.grid[i_minus_1][j_minus_1] >= 1 || 0);
+        liveNeighbors = liveNeighbors + (((self.grid[i - 1] || [])[j_plus_1] || 0) >= 1 || 0);
+        liveNeighbors = liveNeighbors + (((self.grid[i - 1] || [])[j_minus_1] || 0) >= 1 || 0);
 
-        liveNeighbors = liveNeighbors + (self.grid[i_minus_1][j] >= 1 || 0);
-        liveNeighbors = liveNeighbors + (self.grid[i_plus_1][j] >= 1 || 0);
+        liveNeighbors = liveNeighbors + (((self.grid[i - 1] || [])[j] || 0) >= 1 || 0);
+        liveNeighbors = liveNeighbors + (((self.grid[i + 1] || [])[j] || 0) >= 1 || 0);
 
 
         let oldValue = self.grid[i][j];
@@ -143,7 +143,7 @@ function ConwaysGameOfLife(width, height) {
   }
 
   self.insertRow = function(row) {
-    self.grid.push(row);
+    self.grid[self.grid.length - 1] = row;
   }
 
   self.read = function() {
